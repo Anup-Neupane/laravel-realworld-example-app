@@ -17,7 +17,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
       - uses: php-actions/composer@v2
-      - uses: php-actions/phpunit@v6
+      - uses: php-actions/phpunit@v8
       
   
   
