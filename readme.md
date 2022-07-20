@@ -10,7 +10,7 @@ This repo is functionality complete — PRs and issues welcome!
 
 # Getting started
 
-## Installation
+###### Installation
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
 
