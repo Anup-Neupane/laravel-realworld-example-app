@@ -13,7 +13,7 @@ jobs:
         uses: php-actions/composer@v6
 
         with:
-          php_version: '7.1'
+          php_version: '7.2'
           ssh_key: ${{ secrets.SSH_KEY }}
           ssh_key_pub: ${{ secrets.SSH_KEY_PUB }}
 
