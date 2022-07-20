@@ -16,9 +16,5 @@ jobs:
           php_version: 7.2
           ssh_key: ${{ secrets.SSH_KEY }}
           ssh_key_pub: ${{ secrets.SSH_KEY_PUB }}
-      - name: PHPUnit tests
-        uses: php-actions/phpunit@v3
-        with:
-          configuration: phpunit.xml
-          memory_limit: 256M
+      - uses: php-actions/phpunit@v3
     
