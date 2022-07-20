@@ -18,7 +18,7 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
-        run: composer install --ignore-platform-reqs --prefer-dist --no-scripts --no-progress --no-suggest --no-interaction --no-dev --no-autoloader
+        run: composer install --ignore-platform-reqs --prefer-dist --no-scripts --no-progress --no-suggest --no-interaction --no-dev --no-autoloader --no-plugins
 
       - name: update composer
         run: composer update
