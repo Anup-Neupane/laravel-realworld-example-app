@@ -1,38 +1,20 @@
-name: Unit Tests
+name: CI-Composer-v4
 
-on: [push, pull_request]
-
-env:
-    # see https://github.com/composer/composer/issues/9368#issuecomment-718112361
-    COMPOSER_ROOT_VERSION: "dev-master"
+on: [push]
 
 jobs:
-    provide_php_versions_json:
-        runs-on: ubuntu-latest
+  build-test:
+    runs-on: ubuntu-latest
 
-        steps:
-            # git clone + use PHP + composer install
-            -   uses: actions/checkout@v2
-            -   uses: shivammathur/setup-php@v2
-                with:
-                    php-version: 7.2
-            -   run: composer global require kylekatarnls/update-helper
+    steps:
+      - uses: actions/checkout@v2
 
-
-            -   run: composer install --no-progress --ansi
-
-            -
-                # to see the output
-                run: packages/easy-ci/bin/easy-ci php-versions-json
-
-            # here we create the json, we need the "id:" so we can use it in "outputs" bellow
-
-            -
-                id: output_data
-                run: echo "::set-output name=matrix::$(packages/easy-ci/bin/easy-ci php-versions-json)"
-
-        # here, we save the result of this 1st phase to the "outputs"
-        outputs:
-            matrix: ${{ steps.output_data.outputs.matrix }}
+      - name: Install dependencies
+        uses: php-actions/composer@v4
+        with:
+          composer_version: 1
+          php_version: 7.2
+          ssh_key: ${{ secrets.SSH_KEY }}
+          ssh_key_pub: ${{ secrets.SSH_KEY_PUB }}
 
     
