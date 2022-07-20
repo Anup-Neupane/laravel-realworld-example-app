@@ -15,7 +15,6 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-      - name: Build Composer
       - uses: php-actions/composer@v5
         with:
           ssh_key: ${{ secrets.ssh_key }}
