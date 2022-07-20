@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ['7.3']
+        php-versions: "7.3"
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -17,7 +17,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
       - uses: php-actions/composer@v2
-      - uses: php-actions/phpunit@v8
+      - uses: php-actions/phpunit@v6.5
       
   
   
