@@ -8,7 +8,6 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-versions: ["7.2"]
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -16,7 +15,13 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-      - uses: php-actions/composer@v2
+      - name: Build Composer
+      - uses: php-actions/composer@v5
+        with:
+         ssh_key: ${{ secrets.ssh_key }}
+         ssh_key_pub: ${{ secrets.ssh_key_pub }}
+         php_version: 7.2
+      
       - uses: php-actions/phpunit@v6
       
   
